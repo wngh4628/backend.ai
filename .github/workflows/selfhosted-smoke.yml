@@ -2,6 +2,8 @@ name: selfhosted-smoke
 
 on:
   workflow_dispatch:
+  push:
+    branches: [feat/runner]
 
 permissions:
   contents: read
