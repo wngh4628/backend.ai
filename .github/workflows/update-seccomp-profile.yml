@@ -7,7 +7,7 @@ on:
 
 jobs:
   update-seccomp:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     permissions:
       contents: write
       pull-requests: write

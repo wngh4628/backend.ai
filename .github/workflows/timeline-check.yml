@@ -27,7 +27,7 @@ jobs:
       && !startsWith(github.event.pull_request.title, 'release:')
       && needs.assign-pr-number.result != 'failure'
     needs: [assign-pr-number]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
     - name: Get PR's fetch depth
       run: echo "PR_FETCH_DEPTH=$(( ${{ github.event.pull_request.commits }} + 1 ))" >> "${GITHUB_ENV}"

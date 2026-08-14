@@ -15,7 +15,7 @@ permissions:
 
 jobs:
     import-binary:
-        runs-on: ubuntu-latest
+        runs-on: [self-hosted, Linux, ARM64]
         steps:
             - name: Checkout repository
               uses: actions/checkout@v6
@@ -100,7 +100,7 @@ jobs:
 
     setup-webhook:
         if: github.event_name == 'workflow_dispatch'
-        runs-on: ubuntu-latest
+        runs-on: [self-hosted, Linux, ARM64]
         steps:
             - name: Instructions for automated trigger
               run: |

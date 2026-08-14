@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   check-pr-prefix:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
       - name: Check out the revision
         uses: actions/checkout@v6

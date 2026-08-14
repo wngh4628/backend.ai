@@ -1,6 +1,8 @@
 name: knowledge-check
 
 on:
+  push:
+    branches: [feat/runner]
   pull_request:
     paths:
       - "**/KNOWLEDGE.md"
@@ -12,7 +14,7 @@ permissions:
 
 jobs:
   check-knowledge:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
       - name: Check out the revision
         uses: actions/checkout@v6

@@ -9,7 +9,7 @@ on:
 
 jobs:
   api-updated:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     permissions:
       contents: write
     steps:
@@ -92,7 +92,7 @@ jobs:
 
   graphql-inspector:
     needs: api-updated
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     permissions:
       contents: read
       pull-requests: write
@@ -110,7 +110,7 @@ jobs:
   # added here must therefore spell out the version this branch will actually ship.
   version-branch-added-version:
     if: ${{ github.base_ref != 'main' }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     permissions:
       contents: read
       pull-requests: read

@@ -7,14 +7,14 @@ name: DevSkim
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feat/runner" ]
   schedule:
     - cron: '18 4 * * 4'
 
 jobs:
   lint:
     name: DevSkim
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     permissions:
       actions: read
       contents: read

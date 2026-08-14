@@ -17,7 +17,7 @@ env:
 
 jobs:
   stale:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
       - name: Compute projected close date
         run: echo "CLOSE_DATE=$(date -u -d "+${DAYS_BEFORE_CLOSE} days" +%Y-%m-%d)" >> "$GITHUB_ENV"

@@ -2,10 +2,12 @@ name: Check if a precompiled binary file exists in dependencies
 
 on:
   workflow_dispatch:
+  push:
+    branches: [feat/runner]
 
 jobs:
   check-requirement:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
       - name: Checkout the revision
         uses: actions/checkout@v6
