@@ -1,0 +1,22 @@
+name: selfhosted-smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: self-hosted
+    steps:
+      - name: Report the runner environment
+        run: |
+          echo "arch=$(uname -m) kernel=$(uname -r)"
+          echo "python=$(python3 --version)"
+      - name: Check out the revision
+        uses: actions/checkout@v6
+        with:
+          lfs: false
+      - name: Check KNOWLEDGE.md conformance
+        run: python3 scripts/knowledge/check.py
